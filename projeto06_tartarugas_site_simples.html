@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projeto 06 - Ensinando com as Tartarugas | AfanazioDev</title>
+<style>
+* { box-sizing: border-box; }
+body {
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 15px;
+    color: #222;
+    background: white;
+    line-height: 1.5;
+}
+header { margin-bottom: 25px; }
+h1 { font-size: 26px; margin-bottom: 5px; }
+h2 { font-size: 19px; margin-bottom: 5px; }
+.card { margin: 25px 0; }
+.desc { margin: 5px 0 10px; }
+.codebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    background: #eee;
+    border: 1px solid #ccc;
+}
+button {
+    padding: 7px 12px;
+    border: 1px solid #999;
+    background: #f8f8f8;
+    color: #222;
+    cursor: pointer;
+}
+button:hover { background: #ddd; }
+pre {
+    margin: 0;
+    padding: 12px;
+    overflow-x: auto;
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+    border-top: 0;
+    font: 13px/1.5 Consolas, monospace;
+}
+.tag { font-size: 12px; color: #555; }
+footer {
+    margin: 35px 0 15px;
+    text-align: center;
+    font-size: 12px;
+}
+@media (max-width: 600px) {
+    .codebar { align-items: flex-start; flex-direction: column; }
+    h1 { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>Projeto 06 – Ensinando com as Tartarugas</h1>
+<p>Todos os códigos Python do projeto. Clique no botão para copiar cada atividade.</p>
+</header>
+<p><strong>Como usar:</strong> escolha uma atividade e clique em “Copiar código”. Os exemplos são escritos em Python e usam a biblioteca Turtle.</p>
+
+<!-- Cada exemplo tem seu próprio botão de cópia. -->
+
+<section class="card">
+<span class="tag">ETAPA 1 · ESTRELAS</span>
+<h2>Código 1 – Desenhando uma estrela</h2>
+<p class="desc">Desenha uma estrela cinza-clara sobre um fundo azul-escuro.</p>
+<div class="codebar"><span>Python 3 · Turtle</span><button onclick="copyCode('code1',this)">📋 Copiar código</button></div>
+<pre><code id="code1">from turtle import *
+
+# Isso vai desenhar uma estrela cinza-clara em um fundo azul escuro
+color("WhiteSmoke")
+bgcolor("MidnightBlue")
+
+pendown()
+begin_fill()
+
+# Desenha a forma da estrela
+for side in range(5):
+    left(144)
+    forward(50)
+
+end_fill()
+penup()
+
+forward(100)
+done()</code></pre>
+</section>
+
+<section class="card">
+<span class="tag">ETAPA 1 · FUNÇÕES</span>
+<h2>Código 2 – Criando a função drawStar()</h2>
+<p class="desc">Define uma função para desenhar uma estrela e chama essa função três vezes.</p>
+<div class="codebar"><span>Python 3 · Turtle</span><button onclick="copyCode('code2',this)">📋 Copiar código</button></div>
+<pre><code id="code2">from turtle import *
+
+# Uma função para desenhar uma estrela
+def drawStar():
+    pendown()
+    begin_fill()
+    for side in range(5):
+        left(144)
+        forward(50)
+    end_fill()
+    penup()
+
+# Isso vai desenhar uma estrela cinza-clara em um fundo azul escuro
+color("WhiteSmoke")
+bgcolor("MidnightBlue")
+
+# Use a função para desenhar estrelas!
+drawStar()
+forward(100)
+drawStar()
+left(120)
+forward(150)
+drawStar()
+
+hideturtle()
+done()</code></pre>
+</section>
+
+<section class="card">
+<span class="tag">DESAFIO · MAIS FUNÇÕES</span>
+<h2>Código 3 – Desafio: desenhando outras formas</h2>
+<p class="desc">Solução própria para o desafio da página 4: cria funções reutilizáveis para desenhar um quadrado e um triângulo.</p>
+<div class="codebar"><span>Python 3 · Turtle</span><button onclick="copyCode('code3',this)">📋 Copiar código</button></div>
+<pre><code id="code3">from turtle import *
+
+def drawSquare(size):
+    for side in range(4):
+        forward(size)
+        left(90)
+
+def drawTriangle(size):
+    for side in range(3):
+        forward(size)
+        left(120)
+
+bgcolor("MidnightBlue")
+color("White")
+pensize(3)
+
+drawSquare(100)
+
+penup()
+forward(150)
+pendown()
+
+drawTriangle(100)
+
+hideturtle()
+done()</code></pre>
+</section>
+
+<section class="card">
+<span class="tag">ETAPA 2 · PARÂMETROS</span>
+<h2>Código 4 – Estrelas de tamanhos diferentes</h2>
+<p class="desc">A função recebe starSize, que determina o comprimento dos lados da estrela.</p>
+<div class="codebar"><span>Python 3 · Turtle</span><button onclick="copyCode('code4',this)">📋 Copiar código</button></div>
+<pre><code id="code4">from turtle import *
+
+# Uma função para desenhar uma estrela de um tamanho específico
+def drawStar(starSize):
+    pendown()
+    begin_fill()
+    for side in range(5):
+        left(144)
+        forward(starSize)
+    end_fill()
+    penup()
+
+# Isso vai desenhar uma estrela cinza-clara em um fundo azul escuro
+color("WhiteSmoke")
+bgcolor("MidnightBlue")
+
+# Use a função para desenhar estrelas de tamanhos diferentes!
+drawStar(50)
+forward(100)
+drawStar(30)
+left(120)
+forward(150)
+drawStar(70)
+
+hideturtle()
+done()</code></pre>
+</section>
+
+<section class="card">
+<span class="tag">ETAPA 2 · CORES E PARÂMETROS</span>
+<h2>Código 5 – Estrelas com tamanhos e cores diferentes</h2>
+<p class="desc">A função recebe dois parâmetros: starSize e starColour.</p>
+<div class="codebar"><span>Python 3 · Turtle</span><button onclick="copyCode('code5',this)">📋 Copiar código</button></div>
+<pre><code id="code5">from turtle import *
+
+# Uma função para desenhar uma estrela de um tamanho específico
+def drawStar(starSize, starColour):
+    color(starColour)
+    pendown()
+    begin_fill()
+    for side in range(5):
+        left(144)
+        forward(starSize)
+    end_fill()
+    penup()
+
+# Isso desenha um fundo azul escuro
+bgcolor("MidnightBlue")
+
+# Use a função para desenhar estrelas de tamanhos diferentes!
+drawStar(50, "Red")
+forward(100)
+drawStar(30, "White")
+left(120)
+forward(150)
+drawStar(70, "Green")
+
+hideturtle()
+done()</code></pre>
+</section>
+
+<section class="card">
+<span class="tag">DESAFIO · PLANETAS</span>
+<h2>Código 6 – Desafio: desenhando planetas</h2>
+<p class="desc">Solução própria para o desafio da página 8: a função recebe o tamanho e a cor do planeta.</p>
+<div class="codebar"><span>Python 3 · Turtle</span><button onclick="copyCode('code6',this)">📋 Copiar código</button></div>
+<pre><code id="code6">from turtle import *
+
+# Desenha um planeta usando tamanho e cor
+def drawPlanet(planetSize, planetColour):
+    color(planetColour)
+    pendown()
+    begin_fill()
+    circle(planetSize)
+    end_fill()
+    penup()
+
+bgcolor("MidnightBlue")
+
+drawPlanet(30, "Blue")
+
+penup()
+goto(100, 0)
+pendown()
+drawPlanet(20, "Red")
+
+penup()
+goto(-100, -100)
+pendown()
+drawPlanet(40, "Green")
+
+hideturtle()
+done()</code></pre>
+</section>
+
+<section class="card">
+<span class="tag">ETAPA 3 · POSIÇÕES</span>
+<h2>Código 7 – Movendo a tartaruga para uma posição específica</h2>
+<p class="desc">Usa setpos(200, 200) para posicionar a tartaruga nas coordenadas x=200 e y=200.</p>
+<div class="codebar"><span>Python 3 · Turtle</span><button onclick="copyCode('code7',this)">📋 Copiar código</button></div>
+<pre><code id="code7">from turtle import *
+
+# Uma função para desenhar uma estrela de um tamanho específico
+def drawStar(starSize, starColour):
+    color(starColour)
+    pendown()
+    begin_fill()
+    for side in range(5):
+        left(144)
+        forward(starSize)
+    end_fill()
+    penup()
+
+# Isso desenha um fundo azul escuro
+bgcolor("MidnightBlue")
+
+# Vai para uma posição diferente (x=200, y=200)
+penup()
+setpos(200, 200)
+pendown()
+
+# Usa a função para desenhar uma grande estrela branca
+drawStar(50, "White")
+
+hideturtle()
+done()</code></pre>
+</section>
+
+<section class="card">
+<span class="tag">ETAPA 3 · ALEATORIEDADE</span>
+<h2>Código 8 – Desenhando 30 estrelas em posições aleatórias</h2>
+<p class="desc">Cria a função moveToRandomLocation() e desenha 30 estrelas brancas com tamanhos aleatórios entre 5 e 25 pixels.</p>
+<div class="codebar"><span>Python 3 · Turtle + Random</span><button onclick="copyCode('code8',this)">📋 Copiar código</button></div>
+<pre><code id="code8">from turtle import *
+from random import *
+
+# Uma função para mover a tartaruga para uma posição aleatória
+def moveToRandomLocation():
+    penup()
+    setpos(randint(-400, 400), randint(-400, 400))
+    pendown()
+
+# Uma função para desenhar uma estrela de um tamanho específico
+def drawStar(starSize, starColour):
+    color(starColour)
+    pendown()
+    begin_fill()
+    for side in range(5):
+        left(144)
+        forward(starSize)
+    end_fill()
+    penup()
+
+# Isso desenha um fundo azul escuro
+bgcolor("MidnightBlue")
+
+# Desenha 30 estrelas brancas em posições aleatórias
+for star in range(30):
+    moveToRandomLocation()
+    drawStar(randint(5, 25), "White")
+
+hideturtle()
+done()</code></pre>
+</section>
+
+<section class="card">
+<span class="tag">ETAPA 4 · FUNÇÕES DENTRO DE FUNÇÕES</span>
+<h2>Código 9 – Criando galáxias de estrelas</h2>
+<p class="desc">Cria a função drawGalaxy(), que utiliza moveToRandomLocation() e drawStar() para desenhar galáxias com pequenas estrelas coloridas.</p>
+<div class="codebar"><span>Python 3 · Turtle + Random</span><button onclick="copyCode('code9',this)">📋 Copiar código</button></div>
+<pre><code id="code9">from turtle import *
+from random import *
+
+# Uma função para mover a tartaruga para uma posição aleatória
+def moveToRandomLocation():
+    penup()
+    setpos(randint(-400, 400), randint(-400, 400))
+    pendown()
+
+# Uma função para desenhar uma estrela de um tamanho específico
+def drawStar(starSize, starColour):
+    color(starColour)
+    pendown()
+    begin_fill()
+    for side in range(5):
+        left(144)
+        forward(starSize)
+    end_fill()
+    penup()
+
+# Uma função para desenhar uma pequena galáxia de estrelas
+def drawGalaxy(numberOfStars):
+    starColours = ["#058396", "#0275A6", "#827E01"]
+    moveToRandomLocation()
+
+    # Desenha várias pequenas estrelas coloridas
+    for star in range(numberOfStars):
+        penup()
+        left(randint(-180, 180))
+        forward(randint(5, 20))
+        pendown()
+
+        # Desenha uma pequena estrela de cor aleatória
+        drawStar(2, choice(starColours))
+
+speed(11)
+
+# Isso desenha um fundo azul escuro
+bgcolor("MidnightBlue")
+
+# Desenha 30 estrelas brancas
+for star in range(30):
+    moveToRandomLocation()
+    drawStar(randint(5, 25), "White")
+
+# Desenha 3 pequenas galáxias de 40 estrelas
+for galaxy in range(3):
+    drawGalaxy(40)
+
+hideturtle()
+done()</code></pre>
+</section>
+
+<section class="card">
+<span class="tag">ETAPA 4 · CONSTELAÇÕES</span>
+<h2>Código 10 – Desenhando constelações</h2>
+<p class="desc">Programa completo com estrelas aleatórias, três galáxias e duas constelações formadas por estrelas ligadas por linhas brancas.</p>
+<div class="codebar"><span>Python 3 · Turtle + Random</span><button onclick="copyCode('code10',this)">📋 Copiar código</button></div>
+<pre><code id="code10">from turtle import *
+from random import *
+
+# Uma função para mover a tartaruga para uma posição aleatória
+def moveToRandomLocation():
+    penup()
+    setpos(randint(-400, 400), randint(-400, 400))
+    pendown()
+
+# Uma função para desenhar uma estrela de um tamanho específico
+def drawStar(starSize, starColour):
+    color(starColour)
+    pendown()
+    begin_fill()
+    for side in range(5):
+        left(144)
+        forward(starSize)
+    end_fill()
+    penup()
+
+# Uma função para desenhar uma pequena galáxia de estrelas
+def drawGalaxy(numberOfStars):
+    starColours = ["#058396", "#0275A6", "#827E01"]
+    moveToRandomLocation()
+
+    # Desenha várias pequenas estrelas coloridas
+    for star in range(numberOfStars):
+        penup()
+        left(randint(-180, 180))
+        forward(randint(5, 20))
+        pendown()
+        drawStar(2, choice(starColours))
+
+# Uma função para desenhar uma constelação de estrelas
+def drawConstellation(numberOfStars):
+    moveToRandomLocation()
+
+    # Primeiro desenhamos todas as estrelas, exceto a última,
+    # conectadas por linhas
+    for star in range(numberOfStars - 1):
+        drawStar(randint(7, 15), "white")
+        pendown()
+        left(randint(-90, 90))
+        forward(randint(30, 70))
+
+    # Agora desenhamos a última estrela
+    drawStar(randint(7, 15), "White")
+
+speed(11)
+
+# Isso desenha um fundo azul escuro
+bgcolor("MidnightBlue")
+
+# Desenha 30 estrelas brancas
+for star in range(30):
+    moveToRandomLocation()
+    drawStar(randint(5, 25), "White")
+
+# Desenha 3 pequenas galáxias de 40 estrelas
+for galaxy in range(3):
+    drawGalaxy(40)
+
+# Desenha 2 constelações, cada uma com número aleatório de estrelas
+for constellation in range(2):
+    drawConstellation(randint(4, 7))
+
+hideturtle()
+done()</code></pre>
+</section>
+
+<section class="card">
+<span class="tag">DESAFIO FINAL · SOLUÇÃO PRÓPRIA</span>
+<h2>Código 11 – Desafio: criando um desenho próprio</h2>
+<p class="desc">Exemplo autoral para o desafio “Funções em toda parte!” das páginas 16 e 17. Desenha uma casa usando funções para quadrados, triângulos e retângulos.</p>
+<div class="codebar"><span>Python 3 · Turtle</span><button onclick="copyCode('code11',this)">📋 Copiar código</button></div>
+<pre><code id="code11">from turtle import *
+
+# Função para desenhar um quadrado
+def drawSquare(size, colorName):
+    color(colorName)
+    begin_fill()
+    for side in range(4):
+        forward(size)
+        left(90)
+    end_fill()
+
+# Função para desenhar um triângulo
+def drawTriangle(size, colorName):
+    color(colorName)
+    begin_fill()
+    for side in range(3):
+        forward(size)
+        left(120)
+    end_fill()
+
+# Função para desenhar um retângulo
+def drawRectangle(width, height, colorName):
+    color(colorName)
+    begin_fill()
+    for side in range(2):
+        forward(width)
+        left(90)
+        forward(height)
+        left(90)
+    end_fill()
+
+# Configuração da tela
+bgcolor("LightSkyBlue")
+speed(5)
+pensize(2)
+
+# Desenha o sol
+penup()
+goto(250, 180)
+pendown()
+color("Yellow")
+begin_fill()
+circle(40)
+end_fill()
+
+# Desenha o corpo da casa
+penup()
+goto(-100, -100)
+setheading(0)
+pendown()
+drawSquare(200, "Wheat")
+
+# Desenha o telhado
+penup()
+goto(-100, 100)
+setheading(0)
+pendown()
+drawTriangle(200, "Red")
+
+# Desenha a porta
+penup()
+goto(-25, -100)
+setheading(0)
+pendown()
+drawRectangle(50, 90, "SaddleBrown")
+
+# Desenha a janela esquerda
+penup()
+goto(-80, 0)
+setheading(0)
+pendown()
+drawSquare(45, "DeepSkyBlue")
+
+# Desenha a janela direita
+penup()
+goto(35, 0)
+setheading(0)
+pendown()
+drawSquare(45, "DeepSkyBlue")
+
+# Finalização
+hideturtle()
+done()</code></pre>
+</section>
+
+<footer>CRIADO POR AFANAZIODEV 2026</footer>
+</div>
+<script>
+async function copyCode(id, button) {
+    const code = document.getElementById(id).innerText;
+    try {
+        await navigator.clipboard.writeText(code);
+        const old = button.innerText;
+        button.innerText = "✓ Código copiado!";
+        button.classList.add("copied");
+        setTimeout(() => {
+            button.innerText = old;
+            button.classList.remove("copied");
+        }, 1800);
+    } catch (error) {
+        const area = document.createElement("textarea");
+        area.value = code;
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand("copy");
+        area.remove();
+        button.innerText = "✓ Código copiado!";
+        setTimeout(() => button.innerText = "📋 Copiar código", 1800);
+    }
+}
+</script>
+</body>
+</html>
